@@ -1,0 +1,40 @@
+<WORKFLOW>
+    <SOURCES>
+        <SOURCE name="T_GLD_HCH_RES_CONTROL">
+            <SOURCEFIELDS>
+                <FIELD name="FIELD_1" type="string"/>
+                <FIELD name="FIELD_2" type="number"/>
+            </SOURCEFIELDS>
+        </SOURCE>
+    </SOURCES>
+    <TARGETS>
+        <TARGET name="T_GLD_HCH_RES_CONTROL_ENR">
+            <TARGETFIELDS>
+                <FIELD name="FIELD_A" type="string"/>
+                <FIELD name="FIELD_B" type="number"/>
+            </TARGETFIELDS>
+        </TARGET>
+    </TARGETS>
+    <MAPPING>
+        <TRANSFORMATION name="SQ_T_GLD_HCH_RESUL_CONTROL" type="Source Qualifier">
+            <CONNECTOR source="T_GLD_HCH_RES_CONTROL" target="exp_fech_carga"/>
+        </TRANSFORMATION>
+        <TRANSFORMATION name="exp_fech_carga" type="Expression">
+            <EXPRESSIONS>
+                <CALCULATION name="OBSERVACIONES" expression="IIF(condition, true_value, false_value)"/>
+            </EXPRESSIONS>
+            <CONNECTOR source="SQ_T_GLD_HCH_RESUL_CONTROL" target="T_GLD_HCH_RES_CONTROL_ENR"/>
+        </TRANSFORMATION>
+    </MAPPING>
+    <SESSION>
+        <CONFIGURATION type="Relational Reader">
+            <!-- Configuration details here -->
+        </CONFIGURATION>
+        <CONFIGURATION type="Relational Writer">
+            <!-- Configuration details here -->
+        </CONFIGURATION>
+    </SESSION>
+    <START_TASK>
+        <SESSION_TASK_INSTANCE name="Session Task"/>
+    </START_TASK>
+</WORKFLOW>
