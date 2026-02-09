@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WORKFLOW>
+    <TASK>
+        <NAME>Task 1</NAME>
+        <DESCRIPTION>Description of task 1</DESCRIPTION>
+    </TASK>
+    <TASK>
+        <NAME>Task 2</NAME>
+        <DESCRIPTION>Description of task 2</DESCRIPTION>
+    </TASK>
+</WORKFLOW>
